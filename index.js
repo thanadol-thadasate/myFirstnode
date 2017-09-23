@@ -1,4 +1,20 @@
-var express = require('express');
+import express from './config/express';
+
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.PORT = process.env.PORT || 3000;
+
+// ไปเรียกใช้ function ที่เรียกว่า express มา
+var app = express();
+
+app.listen(process.env.PORT, () => {
+       console.log('Starting node.js on port ' + process.env.PORT);
+});
+
+// exports ตัว app ที่เป็น services ไว้ ให้ตัวอื่นมาเรียกใช้ได้
+module.exports = app;
+
+/*var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
@@ -11,7 +27,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(bodyParser.json());
+app.use(bodyParser.json());*/
 
 // plus
 /*app.post('/calculator/rest/plus', function(req, res, next) {
@@ -41,7 +57,7 @@ app.use(bodyParser.json());
 }); */
 
 // cmtoinch
-app.post('/calculator/rest/cmtoinch', function(req, res, next) {
+/*app.post('/calculator/rest/cmtoinch', function(req, res, next) {
     var body = req.body;
     var x = body.x;
     var y = body.y;
@@ -59,4 +75,4 @@ app.get('/help', function(req, res, next) {
 
 app.listen(3000, function() {
     console.log('Starting node on port 3000');
-});
+});*/
