@@ -6,6 +6,9 @@ const path = '/api/index';
 
 // ไปเรียกฟังก์ชันตาม requests ที่ได้รับมา
 module.exports = (app) => {
+    
        app.get('/', index.index);
        app.get('/help', index.help);
+       app.get('/home', index.home);
+
 };
